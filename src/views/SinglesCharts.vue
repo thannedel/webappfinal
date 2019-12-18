@@ -1,42 +1,42 @@
 <template>
-  <div class="albums">
-    <h3>Albums Chart</h3>
-    <Charts v-bind:charts="charts" v-on:chart-state="chartByState" />
+  <div class="singles">
+    <h3>Singles Chart</h3>
+    <Singles v-bind:singles="singles" v-on:chart-single="singlesByState" />
   </div>
 </template>
 <script>
-import Charts from "../components/Charts";
+import Singles from "../components/Singles";
 
 import axios from "axios";
 export default {
-  name: "app",
+  name: "SingleCharts",
   components: {
-    Charts
+    Singles
   },
 
   data() {
     return {
-      charts: [],
+      singles: [],
       // descs: "",
       selected: "",
-      site: ""
+      site3: ""
       //site1: ""
     };
   },
   methods: {
-    chartByState(selected) {
-      this.site = `https://theaudiodb.com/api/v1/json/1/trending.php?country=${selected}&type=itunes&format=albums`;
+    singlesByState(selected) {
+      this.site3 = `https://theaudiodb.com/api/v1/json/1/trending.php?country=${selected}&type=itunes&format=singles`;
       axios
-        .get(this.site)
-        .then(res => (this.charts = res.data.trending))
+        .get(this.site3)
+        .then(res => (this.singles = res.data.trending))
         .catch(err => console.log(err));
       //console.log(this.site);
     },
     chartDefault() {
-      this.site = `https://theaudiodb.com/api/v1/json/1/trending.php?country=US&type=itunes&format=albums`;
+      this.site = `https://theaudiodb.com/api/v1/json/1/trending.php?country=us&type=itunes&format=singles`;
       axios
         .get(this.site)
-        .then(res => (this.charts = res.data.trending))
+        .then(res => (this.singles = res.data.trending))
         .catch(err => console.log(err));
       //console.log(this.site);
     }
@@ -66,7 +66,3 @@ h3 {
   color: #555;
 }
 </style>
-
-
-
-
