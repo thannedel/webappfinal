@@ -9,8 +9,10 @@
 
 <script>
 import firebase from "firebase";
+
 export default {
   name: "SighnIn",
+
   data() {
     return {
       user: "",
@@ -32,6 +34,12 @@ export default {
 
           this.userName = user.displayName;
           this.email = user.email;
+          if (this.userName) {
+            this.$router.push({
+              name: "Chat",
+              params: { userName: this.userName }
+            });
+          }
           console.log(this.userName);
           console.log(this.email);
           //getPosts();

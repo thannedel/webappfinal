@@ -1,4 +1,4 @@
-export default {
+export const firebaseConfig = {
     apiKey: "AIzaSyDQDsCweDiwtv71JwnhDL_UkboZd9BPCq4",
     authDomain: "aboutmusic-80fee.firebaseapp.com",
     databaseURL: "https://aboutmusic-80fee.firebaseio.com",
@@ -8,5 +8,3 @@ export default {
     appId: "1:380125023328:web:1b940f8b41f81a4791c705",
     measurementId: "G-HT4JBN5RV2"
 };
-
-firebase.initializeApp(firebaseConfig);

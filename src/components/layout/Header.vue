@@ -19,10 +19,7 @@
                 <router-link to="/singles">Singles</router-link>
               </b-nav-item>
               <b-nav-item>
-                <router-link to="/signin">Sign In</router-link>
-              </b-nav-item>
-              <b-nav-item>
-                <router-link to="/chat">Chat</router-link>
+                <router-link to="/signin">Chat</router-link>
               </b-nav-item>
             </b-navbar-nav>
 

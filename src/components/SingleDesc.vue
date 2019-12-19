@@ -8,7 +8,7 @@
 
       <img v-bind:src="single.strTrackThumb" />
       <!-- <button @click="$emit('read-more',single.idAlbum)">read more</button> -->
-      <b-button variant="primary" @click="$emit('open-modal', single.idAlbum)">Open Modal</b-button>
+      <b-button variant="primary" @click="$emit('open-modal', single.idAlbum)">Read More</b-button>
     </b-card>
   </div>
 </template>

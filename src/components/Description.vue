@@ -6,7 +6,7 @@
       </router-link>
       <img v-bind:src="chart.strAlbumThumb" />
       <b-card-text>{{ chart.strAlbum }}</b-card-text>
-      <b-button variant="primary" @click="$emit('open-modal', chart.idAlbum)">Open Modal</b-button>
+      <b-button variant="primary" @click="$emit('open-modal', chart.idAlbum)">Read More</b-button>
     </b-card>
 
     <!-- <img v-bind:src="chart.strAlbumThumb" /> -->

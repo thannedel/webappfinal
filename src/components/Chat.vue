@@ -1,42 +1,19 @@
 <template>
   <div>
-    <div id="isLogin" class="mt-5">
-      <div id="chat">
-        <p>Simple chat example</p>
-        <input id="message" type="text" />
-        <button onclick="writePosts()">Send post</button>
-      </div>
-
-      <div id="posts" class="mt-5"></div>
-    </div>
+    <NewMessage :userName="userName" />
   </div>
 </template>
 
 <script>
-//import firebase from "firebase";
+import NewMessage from "../components/NewMessage.vue";
 export default {
   name: "Chat",
-  data() {
-    return {
-      posts: [],
-      database: ""
-    };
+  props: ["userName"],
+  components: {
+    NewMessage
   },
-  methods: {
-    getPosts() {
-      this.database
-        .collection("posts")
-        .get()
-        .then(function(querySnapshot) {
-          let posts = [];
-          querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            posts.push(doc.data());
-            // console.log(doc.id, " => ", doc.data());
-          });
-          this.displayMessages(posts);
-        });
-    }
+  data() {
+    return {};
   }
 };
 </script>
