@@ -1,9 +1,6 @@
 <template>
-  <div>
-    <button type="button" id="logIn" @click="logIn()">Log in!</button>
-    <div id="chat">
-      <p>Simple chat example</p>
-    </div>
+  <div class="signIn">
+    <b-button size="lg" type="button" id="logIn" @click="logIn()">Log in!</b-button>
   </div>
 </template>
 
@@ -52,4 +49,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.signIn {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

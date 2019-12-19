@@ -4,9 +4,14 @@
     <button onclick="writePosts()">Send post</button>-->
 
     <!-- <form @submit.prevent="addMessage"></form> -->
-    <input type="text" name="new-message" v-model="newMessage" placeholder="Type your message" />
-    <button type="button" id="send" @click="addMessage()">Send Post</button>
-    <p v-for="chat in chats" v-bind:key="chat.id">{{chat.name}} {{chat.message}}</p>
+    <b-input-group class="mt-3">
+      <b-form-input name="new-message" v-model="newMessage" placeholder="Type your message"></b-form-input>
+
+      <b-button variant="info" type="button" id="send" @click="addMessage()">Send Post</b-button>
+    </b-input-group>
+    <div v-if="!isLoading">
+      <p v-for="(chat, index) in chats" v-bind:key="index">{{chat.name}} {{chat.message}}</p>
+    </div>
   </div>
 </template>
 
@@ -20,29 +25,37 @@ export default {
   data() {
     return {
       newMessage: null,
-      chats: []
+      chats: [],
+      isLoading: true
     };
   },
   created() {
-    db.collection("chat")
-      .orderBy("date")
-
-      .get()
-      .then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          const data = {
-            name: doc.data().name,
-            message: doc.data().message,
-            date: doc.data().date.timestamp
-          };
-          this.chats.push(data);
-        });
-      });
+    this.getMessages();
   },
 
   methods: {
+    getMessages() {
+      db.collection("chat")
+        .orderBy("date")
+
+        .get()
+        .then(querySnapshot => {
+          //this.chats = [];
+          let messages = [];
+          querySnapshot.forEach(doc => {
+            const data = {
+              name: doc.data().name,
+              message: doc.data().message,
+              date: doc.data().date.timestamp
+            };
+            messages.push(data);
+            console.log(this.chats);
+            this.isLoading = false;
+          });
+          this.chats = messages;
+        });
+    },
     addMessage() {
-      //this.newMessage = "";
       let database = firebase.firestore();
       let postData = {
         name: this.userName,
@@ -55,6 +68,7 @@ export default {
         .add(postData)
         .then(docRef => {
           console.log("Document written with ID: ", docRef.id);
+          this.getMessages();
         })
         .catch(error => {
           console.error("Error adding document: ", error);
@@ -62,10 +76,11 @@ export default {
 
       console.log(postData);
       console.log(this.userName);
+      this.newMessage = "";
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
 </style>

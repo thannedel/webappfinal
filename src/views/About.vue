@@ -1,6 +1,7 @@
 <template>
   <div class="albums">
     <h3>Albums Chart</h3>
+
     <Charts v-bind:charts="charts" v-on:chart-state="chartByState" />
   </div>
 </template>
@@ -59,8 +60,9 @@ img {
 
   background-color: #80a3db;
 }
+
 h3 {
-  font: bold 2rem "Open Sans", sans-serif;
+  font: bold 1.2rem "Open Sans", sans-serif;
   margin-bottom: 0.5rem;
   text-align: center;
   color: #555;
