@@ -1,12 +1,13 @@
 <template>
   <div>
-    <p>Choose By Country</p>
-    <select v-model="selected" @change="$emit('chart-single',selected)">
-      <option value="us" selected>USA</option>
-      <option value="gb">Great Britain</option>
-      <option value="de">Germany</option>
-    </select>
-
+    <b-container class="selectbox">
+      <p>Choose By Country</p>
+      <select v-model="selected" @change="$emit('chart-single',selected)">
+        <option value="us" selected>USA</option>
+        <option value="gb">Great Britain</option>
+        <option value="de">Germany</option>
+      </select>
+    </b-container>
     <div v-bind:key="single.id" v-for="single in singles">
       <SingleDesc v-bind:single="single" v-on:open-modal="openModal" />
     </div>
@@ -65,4 +66,10 @@ export default {
 </script>
 
 <style scoped>
+@media only screen and (min-width: 500px) {
+  .selectbox {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 </style>

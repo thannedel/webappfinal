@@ -1,6 +1,6 @@
 <template>
   <div class="signIn">
-    <b-button size="lg" type="button" id="logIn" @click="logIn()">Log in!</b-button>
+    <b-button variant="primary" size="lg" type="button" id="logIn" @click="logIn()">Log in!</b-button>
   </div>
 </template>
 

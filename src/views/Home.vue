@@ -45,4 +45,11 @@ export default {
   font: normal 28px "Open Sans", sans-serif;
   margin-bottom: 40px;
 }
+.hero-content-area {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 </style>
