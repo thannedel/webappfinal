@@ -52,13 +52,14 @@ export default {
           console.log(res.data.album);
           this.descs = res.data.album[0].strDescriptionEN;
           // console.log(this.descs.strDescriptionEN);
+          this.showModal = true;
         })
         .catch(err => console.log(err));
       // console.log(2);
       // console.log(this.descs);
 
       // this.$bvModal.show("my-modal");
-      this.showModal = true;
+
       console.log(this.showModal);
       console.log(idAlbum);
     }
