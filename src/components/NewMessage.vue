@@ -58,6 +58,10 @@ export default {
   },
 
   methods: {
+    scrollToBottom() {
+      let box = document.querySelector(".msg_history");
+      box.scrollTop = box.scrollHeight;
+    },
     getMessages() {
       db.collection("chat")
         .orderBy("date")
@@ -77,6 +81,9 @@ export default {
             this.isLoading = false;
           });
           this.chats = messages;
+          setTimeout(() => {
+            this.scrollToBottom();
+          }, 1000);
         });
     },
     addMessage() {
@@ -93,6 +100,7 @@ export default {
         .then(docRef => {
           console.log("Document written with ID: ", docRef.id);
           this.getMessages();
+          this.scrollToBottom();
         })
         .catch(error => {
           console.error("Error adding document: ", error);
