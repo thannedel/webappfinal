@@ -36,7 +36,6 @@ export default {
       //console.log(this.site);
     },
     chartDefault() {
-      console.log(apiKey);
       this.site = `https://theaudiodb.com/api/v1/json/${apiKey}/trending.php?country=US&type=itunes&format=albums`;
       axios
         .get(this.site)

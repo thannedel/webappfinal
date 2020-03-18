@@ -6,7 +6,7 @@
 </template>
 <script>
 import Singles from "../components/Singles";
-
+import { apiKey } from "../components/key";
 import axios from "axios";
 export default {
   name: "SingleCharts",
@@ -19,13 +19,14 @@ export default {
       singles: [],
       // descs: "",
       selected: "",
-      site3: ""
+      site3: "",
       //site1: ""
+      apiKey: ""
     };
   },
   methods: {
     singlesByState(selected) {
-      this.site3 = `https://theaudiodb.com/api/v1/json/1/trending.php?country=${selected}&type=itunes&format=singles`;
+      this.site3 = `https://theaudiodb.com/api/v1/json/${apiKey}/trending.php?country=${selected}&type=itunes&format=singles`;
       axios
         .get(this.site3)
         .then(res => (this.singles = res.data.trending))
@@ -33,7 +34,7 @@ export default {
       //console.log(this.site);
     },
     chartDefault() {
-      this.site = `https://theaudiodb.com/api/v1/json/1/trending.php?country=us&type=itunes&format=singles`;
+      this.site = `https://theaudiodb.com/api/v1/json/${apiKey}/trending.php?country=us&type=itunes&format=singles`;
       axios
         .get(this.site)
         .then(res => (this.singles = res.data.trending))
