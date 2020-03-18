@@ -5,9 +5,10 @@
     <Charts v-bind:charts="charts" v-on:chart-state="chartByState" />
   </div>
 </template>
+
 <script>
 import Charts from "../components/Charts";
-
+import { apiKey } from "../components/key";
 import axios from "axios";
 export default {
   name: "app",
@@ -20,13 +21,14 @@ export default {
       charts: [],
       // descs: "",
       selected: "",
-      site: ""
+      site: "",
+      apiKey: ""
       //site1: ""
     };
   },
   methods: {
     chartByState(selected) {
-      this.site = `https://theaudiodb.com/api/v1/json/1/trending.php?country=${selected}&type=itunes&format=albums`;
+      this.site = `https://theaudiodb.com/api/v1/json/${apiKey}/trending.php?country=${selected}&type=itunes&format=albums`;
       axios
         .get(this.site)
         .then(res => (this.charts = res.data.trending))
@@ -34,7 +36,8 @@ export default {
       //console.log(this.site);
     },
     chartDefault() {
-      this.site = `https://theaudiodb.com/api/v1/json/1/trending.php?country=US&type=itunes&format=albums`;
+      console.log(apiKey);
+      this.site = `https://theaudiodb.com/api/v1/json/${apiKey}/trending.php?country=US&type=itunes&format=albums`;
       axios
         .get(this.site)
         .then(res => (this.charts = res.data.trending))
