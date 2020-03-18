@@ -20,3 +20,5 @@ yarn-error.log*
 *.sln
 *.sw?
 src/components/firebaseConfig.js
+src/components/key.js
+
