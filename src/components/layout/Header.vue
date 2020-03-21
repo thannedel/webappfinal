@@ -22,8 +22,6 @@
                 <router-link to="/signin">Chat</router-link>
               </b-nav-item>
             </b-navbar-nav>
-
-            <!-- Right aligned nav items -->
           </b-collapse>
         </b-navbar>
       </div>

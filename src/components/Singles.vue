@@ -1,24 +1,28 @@
 <template>
   <div>
-    <b-container class="selectbox">
-      <p>Choose By Country</p>
-      <select v-model="selected" @change="$emit('chart-single',selected)">
-        <option value="us" selected>USA</option>
-        <option value="gb">Great Britain</option>
-        <option value="de">Germany</option>
-      </select>
-    </b-container>
-    <div v-bind:key="single.id" v-for="single in singles">
-      <SingleDesc v-bind:single="single" v-on:open-modal="openModal" />
-    </div>
+    <b-container>
+      <div class="selectbox">
+        <p>Choose By Country</p>
+        <select v-model="selected" @change="$emit('chart-single',selected)">
+          <option value="us" selected>USA</option>
+          <option value="gb">Great Britain</option>
+          <option value="de">Germany</option>
+        </select>
+      </div>
+      <div class="grid">
+        <div v-bind:key="single.id" v-for="single in singles">
+          <SingleDesc v-bind:single="single" v-on:open-modal="openModal" />
+        </div>
 
-    <div v-show="showModal">
-      <b-modal
-        v-model="showModal"
-        v-if="this.descs==null"
-      >We 're sorry, there is no description for this single</b-modal>
-      <b-modal v-model="showModal" v-else>{{this.descs}}</b-modal>
-    </div>
+        <div v-show="showModal">
+          <b-modal
+            v-model="showModal"
+            v-if="this.descs==null"
+          >We 're sorry, there is no description for this single</b-modal>
+          <b-modal v-model="showModal" v-else>{{this.descs}}</b-modal>
+        </div>
+      </div>
+    </b-container>
   </div>
 </template>
 
@@ -70,6 +74,12 @@ export default {
   .selectbox {
     display: flex;
     justify-content: space-between;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
   }
 }
 </style>

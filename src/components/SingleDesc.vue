@@ -1,17 +1,15 @@
 <template>
   <div>
-    <b-container class="cont">
-      <b-card bg-variant="light">
-        <router-link v-bind:to="'/biographies/' + single.strArtist">
-          <h4>{{ single.strArtist }}</h4>
-        </router-link>
-        <p>{{ single.strAlbum }}</p>
+    <b-card bg-variant="light">
+      <router-link v-bind:to="'/biographies/' + single.strArtist">
+        <h4>{{ single.strArtist }}</h4>
+      </router-link>
+      <p>{{ single.strAlbum }}</p>
 
-        <img v-bind:src="single.strTrackThumb" />
-        <!-- <button @click="$emit('read-more',single.idAlbum)">read more</button> -->
-        <b-button variant="primary" @click="$emit('open-modal', single.idAlbum)">Read More</b-button>
-      </b-card>
-    </b-container>
+      <img v-bind:src="single.strTrackThumb" />
+      <!-- <button @click="$emit('read-more',single.idAlbum)">read more</button> -->
+      <b-button variant="primary" @click="$emit('open-modal', single.idAlbum)">Read More</b-button>
+    </b-card>
   </div>
 </template>
  

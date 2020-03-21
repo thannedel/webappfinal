@@ -61,7 +61,7 @@ img {
   background-color: #80a3db;
 }
 h3 {
-  font: bold 2rem "Open Sans", sans-serif;
+  font: bold 1.2rem "Open Sans", sans-serif;
   margin-bottom: 0.5rem;
   text-align: center;
   color: #555;
