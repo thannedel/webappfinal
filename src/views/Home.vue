@@ -1,12 +1,62 @@
 <template>
-  <div class="home">
-    <div class="hero">
-      <img alt="Vue logo" src="../assets/main.jpg" />
-      <div class="hero-content-area">
-        <h1>aboutmusic</h1>
-        <h3>Weekly Charts</h3>
+  <div>
+    <b-container fluid class="p-4 bg-success">
+      <b-row>
+        <b-col>
+          <b-img
+            thumbnail
+            fluid
+            src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            alt="Image 1"
+          ></b-img>
+        </b-col>
+        <b-col>
+          <b-img
+            thumbnail
+            fluid
+            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+            alt="Image 2"
+          ></b-img>
+        </b-col>
+        <b-col>
+          <b-img
+            thumbnail
+            fluid
+            src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+            alt="Image 3"
+          ></b-img>
+        </b-col>
+      </b-row>
+    </b-container>
+    <b-jumbotron>
+      <template v-slot:header>aboutmusic</template>
+
+      <template v-slot:lead>We have our ears in the streets.</template>
+
+      <hr class="my-4" />
+
+      <p>The top albums and singles of the week from USA, UK and Germany</p>
+
+      <b-button variant="primary" href=/albums>Albums</b-button>
+      <b-button variant="success" href="/singles">Singles</b-button>
+    </b-jumbotron>
+     <footer id="main-footer" class="bg-inverse">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <div class="py-4">
+            <h1 class="h3">ThLAB</h1>
+            <p>Copyright &copy; 2017</p>
+            
+          </div>
+        </div>
       </div>
     </div>
+  </footer>
+    <!-- <h1>aboutmusic</h1>
+
+    <p>"We have our ears in the streets."</p>
+    <hr />-->
   </div>
 </template>
 
@@ -17,39 +67,25 @@ export default {
 </script>
 
 <style scoped>
-.hero {
-  position: relative;
+/* hr {
+  width: 150px;
+  height: 2px;
+  background-color: #4f9129;
+  border: 0;
+  margin-bottom: 80px;
+} */
+ h1 {
+ /*  display: flex;
   justify-content: center;
-  text-align: center;
-  min-height: 100vh;
-  color: #fff;
-}
+  font: bold 40px "Open Sans";
+  margin: 15px 1 5px;*/
 
-.hero img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  z-index: -1;
-  background-color: #80a3db;
-}
-
-.hero h1 {
-  font: bold 50px "Open Sans", sans-serif;
-  margin-bottom: 15px;
-}
-
-.hero h3 {
-  font: normal 28px "Open Sans", sans-serif;
-  margin-bottom: 40px;
-}
-.hero-content-area {
-  height: 100vh;
+  color: rgb(96, 97, 42);
+} 
+p {
   display: flex;
+  font-style: italic;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
 }
+
 </style>
