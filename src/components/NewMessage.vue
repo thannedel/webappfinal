@@ -56,7 +56,6 @@ export default {
   created() {
     this.getMessages();
   },
-
   methods: {
     scrollToBottom() {
       let box = document.querySelector(".msg_history");
@@ -65,7 +64,6 @@ export default {
     getMessages() {
       db.collection("chat")
         .orderBy("date")
-
         .get()
         .then(querySnapshot => {
           //this.chats = [];
@@ -105,7 +103,6 @@ export default {
         .catch(error => {
           console.error("Error adding document: ", error);
         });
-
       console.log(postData);
       console.log(this.userName);
       this.newMessage = "";
@@ -134,12 +131,10 @@ img {
   clear: both;
   overflow: hidden;
 }
-
 .chat_img {
   float: left;
   width: 11%;
 }
-
 .incoming_msg_img {
   display: inline-block;
   width: 6%;
@@ -159,6 +154,7 @@ img {
   padding: 5px 10px 5px 12px;
   width: 100%;
 }
+
 .time_date {
   color: #747474;
   display: block;
@@ -166,24 +162,26 @@ img {
   margin: 8px 0 0;
 }
 .received_withd_msg {
-  width: 57%;
+  margin: 0%;
 }
 .mesgs {
   float: left;
   padding: 30px 15px 0 25px;
   width: 100%;
 }
-
 .outgoing_msg {
   overflow: hidden;
   margin: 26px 0 26px;
 }
-
 .messaging {
   padding: 0 0 50px 0;
 }
 .msg_history {
   height: 516px;
   overflow-y: auto;
+}
+.sent_msg {
+  width: 46%;
+  padding: 10px;
 }
 </style>
