@@ -45,8 +45,8 @@
       <div class="row">
         <div class="col text-center">
           <div class="py-4">
-            <h1 class="h3">ThLAB</h1>
-            <p>Copyright &copy; 2017</p>
+            <h1 class="h3">tHLab</h1>
+            <p>Copyright &copy; 2019</p>
             
           </div>
         </div>
