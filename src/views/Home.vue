@@ -37,8 +37,8 @@
 
       <p>The top albums and singles of the week from USA, UK and Germany</p>
 
-      <b-button variant="primary" href=/albums>Albums</b-button>
-      <b-button variant="success" href="/singles">Singles</b-button>
+      <router-link to=/albums><b-button variant="primary" >Albums</b-button></router-link>
+      <router-link to=/singles> <b-button variant="success" href="/singles">Singles</b-button></router-link>
     </b-jumbotron>
      <footer id="main-footer" class="bg-inverse">
     <div class="container">
